@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Our Love Story</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+        @font-face {
+            font-family: digit;
+            src: url('digital-7_mono.ttf') format("truetype");
+        }
+    </style>
+    <link href="css/default.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/garden.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+</head>
+
+<body>
+<div id="mainDiv">
+    <div id="content">
+        <div id="code">
+            <span class="comments">猪</span><br />
+            <span class="space"/><span class="comments">没想到吧。</span><br />
+            <span class="space"/><span class="comments">虽然这个东西不是我写的，是我抄的</span><br />
+            <span class="space"/><span class="comments">但是表达的我的心意应该是够的</span><br />
+            <span class="space"/>你每天就吃完睡，睡完吃<br />
+            <span class="space"/>跟个猪一样<br />
+            <span class="space"/>哈哈哈哈，但是我喜欢<br />
+            <span class="space"/>你家陆陆这么疼你你喜欢吗？<br />
+            <span class="space"/>七夕快乐<br />
+            <span class="space"/>我猜你，等不急这个JS跑完<br />
+            <span class="space"/>所以我猜你会看源码？<br />
+            <span class="space"/>好吧，最肉麻的话我就做个彩蛋<br />
+            <!--I Love U-->
+            <br />
+        </div>
+        <div id="loveHeart">
+            <canvas id="garden"></canvas>
+            <div id="words">
+                <div id="messages">
+                    猪,我爱你！
+                    <div id="elapseClock"></div>
+                </div>
+                <div id="loveu">
+                    Love u forever and ever.<br/>
+                    <div class="signature">- jorie 2017</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript">
+    var offsetX = $("#loveHeart").width() / 2;
+    var offsetY = $("#loveHeart").height() / 2 - 55;
+    var together = new Date();
+    together.setFullYear(2016, 11, 7);
+    together.setHours(20);
+    together.setMinutes(0);
+    together.setSeconds(0);
+    together.setMilliseconds(0);
+
+    if (!document.createElement('canvas').getContext) {
+        var msg = document.createElement("div");
+        msg.id = "errorMsg";
+        msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+";
+        document.body.appendChild(msg);
+        $("#code").css("display", "none")
+        $("#copyright").css("position", "absolute");
+        $("#copyright").css("bottom", "10px");
+        document.execCommand("stop");
+    } else {
+        setTimeout(function () {
+            startHeartAnimation();
+        }, 5000);
+        timeElapse(together);
+        setInterval(function () {
+            timeElapse(together);
+        }, 500);
+        adjustCodePosition();
+        $("#code").typewriter();
+    }
+</script>
+</body>
+</html>
